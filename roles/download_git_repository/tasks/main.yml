@@ -1,0 +1,8 @@
+
+- name: "Clone a github repository"
+  git:
+
+    repo: https://github.com/DaliaDa/Team2_Final
+    dest: /home/ubuntu/final_assignment2
+    version: main
+
