@@ -56,11 +56,12 @@ def delete_instance(carid):
             return cursor.rowcount
 
 
-def update_instance(car, reg_number):
+def update_instance(reg_number, car):
     with db.crete_connection() as conn:
         with conn.cursor() as cursor:
+            print(car)
             update_query = "UPDATE Cars SET reg_number = %s, VIN = %s, Engine_type = %s WHERE reg_number = %s"
-            values = (car['reg_number'], car['VIN'], car['Engine_type'], reg_number)
+            values = (reg_number, car['VIN'], car['Engine_type'],reg_number)
             cursor.execute(update_query, values)
             conn.commit()
         return car
